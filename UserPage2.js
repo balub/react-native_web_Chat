@@ -6,20 +6,19 @@ import CurrentUserContainer from "./components/CurrentUserContainer";
 import ContactsContainer from "./components/ContactsContainer";
 import ChatContainer from "./components/ChatContainer";
 import { MessageContext } from "./utils/MessageContext";
-import Home from "./components/Home";
 
-export default function App() {
-  const [state, setstate] = useState({
-    user_1_id: 1,
-    user_1_name: "Balu Babu Naidu",
-    user_2_id: 2,
-    user_2_name: "Michael Joseph",
-  });
-
+export default function UserPage2() {
   return (
-    <MessageContext.Provider value={{ state, setstate }}>
-      <Home />
-    </MessageContext.Provider>
+    <View style={styles.container}>
+      <View style={styles.leftContainer}>
+        <LogoContainer isUser2={true} />
+        <CurrentUserContainer isUser2={true} />
+        <ContactsContainer isUser2={true} />
+      </View>
+      <View style={styles.rightContainer}>
+        <ChatContainer isUser2={true} />
+      </View>
+    </View>
   );
 }
 
