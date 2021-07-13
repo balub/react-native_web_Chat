@@ -10,7 +10,10 @@ export default function ContactsContainer({ isUser2 = false }) {
     <View style={styles.container}>
       <Text style={styles.sectionHeading}>Active Conversations</Text>
       <View style={{ marginVertical: 24 }}>
-        <ContactCard name={isUser2 ? state.user_1_name : state.user_2_name} />
+        <ContactCard
+          name={isUser2 ? state.user_1_name : state.user_2_name}
+          pic={isUser2 ? state.user_1_profile_pic : state.user_2_profile_pic}
+        />
       </View>
     </View>
   );

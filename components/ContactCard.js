@@ -5,10 +5,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 export default function ContactCard({ name, pic }) {
   return (
     <View style={styles.container}>
-      <Image
-        style={{ width: 50, height: 50 }}
-        source="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"
-      />
+      <Image style={{ width: 50, height: 50 }} source={pic} />
       <Text style={{ fontSize: 14, fontWeight: "800", marginLeft: 12 }}>
         {name}
       </Text>

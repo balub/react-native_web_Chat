@@ -12,8 +12,7 @@ import { MessageContext } from "../utils/MessageContext";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 
-import io from "socket.io-client";
-const ENDPOINT = "http://192.168.1.38:3000";
+import { firebase } from "../utils/FirebaseConfig";
 
 export default function ChatContainer({ isUser2 = false }) {
   const { state } = useContext(MessageContext);
@@ -24,11 +23,22 @@ export default function ChatContainer({ isUser2 = false }) {
   const scrollViewRef = useRef();
 
   useEffect(() => {
-    socket.current = io(ENDPOINT, { transports: ["websocket"] });
-    socket.current.on("messages", (data) => {
-      console.log("data", data);
-      setMessages(data);
-    });
+    firebase
+      .firestore()
+      .collection("messages")
+      .orderBy("timestamp")
+      .onSnapshot(
+        (querySnapshot) => {
+          const newEntities = [];
+          querySnapshot.forEach((doc) => {
+            newEntities.push(doc.data());
+          });
+          setMessages(newEntities);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }, []);
 
   return (

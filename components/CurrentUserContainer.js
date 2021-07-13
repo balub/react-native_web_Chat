@@ -10,7 +10,7 @@ export default function CurrentUserContainer({ isUser2 = false }) {
     <View style={styles.currentUserContainer}>
       <Image
         style={{ width: 120, height: 120 }}
-        source="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"
+        source={isUser2 ? state.user_2_profile_pic : state.user_1_profile_pic}
       />
       <Text style={{ fontSize: 24, fontWeight: "bold" }}>
         {isUser2 ? state.user_2_name : state.user_1_name}

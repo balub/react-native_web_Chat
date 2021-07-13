@@ -12,8 +12,12 @@ export default function App() {
   const [state, setstate] = useState({
     user_1_id: 1,
     user_1_name: "Balu Babu Naidu",
+    user_1_profile_pic:
+      "https://img.favpng.com/18/18/18/computer-icons-icon-design-avatar-png-favpng-X29r5WhWMXVYvNsYXkR4iBgwf.jpg",
     user_2_id: 2,
-    user_2_name: "Michael Joseph",
+    user_2_name: "Harish Babu",
+    user_2_profile_pic:
+      "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
   });
 
   return (
