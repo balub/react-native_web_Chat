@@ -22,5 +22,4 @@ export default function ContactsContainer({ isUser2 = false }) {
 const styles = StyleSheet.create({
   container: { marginVertical: 24 },
   sectionHeading: { fontSize: 18, fontWeight: "600" },
-  contactsList: {},
 });

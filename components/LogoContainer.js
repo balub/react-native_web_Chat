@@ -12,16 +12,7 @@ export default function LogoContainer({ isUser2 = false }) {
         style={styles.logo}
         source={"https://img.icons8.com/cotton/2x/4a90e2/chat.png"}
       />
-      <Text
-        style={{
-          fontSize: 32,
-          fontWeight: "bold",
-          marginBottom: 25,
-          marginLeft: 25,
-        }}
-      >
-        Chat App
-      </Text>
+      <Text style={styles.textStyles}>Chat App</Text>
     </View>
   );
 }
@@ -37,5 +28,11 @@ const styles = StyleSheet.create({
     width: 66,
     height: 58,
     marginBottom: 24,
+  },
+  textStyles: {
+    fontSize: 32,
+    fontWeight: "bold",
+    marginBottom: 25,
+    marginLeft: 25,
   },
 });

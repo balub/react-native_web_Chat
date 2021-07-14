@@ -13,18 +13,13 @@ export default function ChatInput({ ws, isUser2 }) {
     const fileData = await DocumentPicker.getDocumentAsync().then((result) => {
       return result;
     });
-    console.log(fileData);
-    var metadata = {
-      contentType: fileData.file.type,
-    };
-    var uploadTask = firebase
+    firebase
       .storage()
       .ref()
       .child("files/" + fileData.file.name)
       .putString(fileData.uri, "data_url")
       .then((snapshot) => {
         snapshot.ref.getDownloadURL().then((downloadURL) => {
-          console.log("File available at", downloadURL);
           firebase
             .firestore()
             .collection("messages")
@@ -42,6 +37,7 @@ export default function ChatInput({ ws, isUser2 }) {
               console.log("Document successfully written!");
             })
             .catch((error) => {
+              alert("Error writing document");
               console.error("Error writing document: ", error);
             });
         });
@@ -49,6 +45,7 @@ export default function ChatInput({ ws, isUser2 }) {
   };
 
   const sendMessage = () => {
+    if (value === "") return;
     firebase
       .firestore()
       .collection("messages")
@@ -75,21 +72,16 @@ export default function ChatInput({ ws, isUser2 }) {
     <View style={styles.container}>
       <Ionicons name="attach-sharp" size={40} onPress={PickFile} />
       <TextInput
-        style={{
-          width: "150%",
-          height: 40,
-          borderColor: "#edeff7",
-          borderWidth: 3,
-          marginRight: 12,
-        }}
+        style={styles.textStyles}
         onChangeText={(text) => onChangeText(text)}
         value={value}
+        onSubmitEditing={sendMessage}
       />
       <Button
         onPress={sendMessage}
         title="SEND >"
         color="#014dfb"
-        style={{ width: 60, height: 40, padding: 12, borderRadius: 5 }}
+        style={styles.btnStyles}
       />
     </View>
   );
@@ -105,4 +97,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 12,
   },
+  textStyles: {
+    width: "150%",
+    height: 40,
+    borderColor: "#edeff7",
+    borderWidth: 3,
+    marginRight: 12,
+  },
+  btnStyles: { width: 60, height: 40, padding: 12, borderRadius: 5 },
 });

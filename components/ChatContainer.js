@@ -73,15 +73,3 @@ export default function ChatContainer({ isUser2 = false }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  chatContainer: {
-    marginHorizontal: 24,
-    padding: 24,
-    backgroundColor: "#f2f5fc",
-    border: "2px solid #edeff7",
-    borderRadius: 20,
-    overflow: "hidden",
-    width: 500,
-  },
-});
