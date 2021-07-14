@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { StyleSheet, View, Text, Image, Dimensions } from "react-native";
 
-import LogoContainer from "./components/LogoContainer";
-import CurrentUserContainer from "./components/CurrentUserContainer";
-import ContactsContainer from "./components/ContactsContainer";
-import ChatContainer from "./components/ChatContainer";
 import { MessageContext } from "./utils/MessageContext";
 import Home from "./components/Home";
 
