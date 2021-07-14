@@ -26,22 +26,3 @@ export default function App() {
     </MessageContext.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-    flexDirection: "row",
-    alignItems: "flex-start",
-    backgroundColor: "#fff",
-  },
-  leftContainer: {
-    justifyContent: "space-around",
-    alignItems: "flex-start",
-    alignContent: "flex-start",
-  },
-  rightContainer: {
-    maxHeight: Dimensions.get("window").height / 1.1,
-    maxWidth: Dimensions.get("window").width / 1.225,
-  },
-});
